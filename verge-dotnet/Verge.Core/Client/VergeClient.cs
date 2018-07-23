@@ -28,97 +28,101 @@ namespace Verge.Core.Client
         public async Task<JsonResponse<RootObject<GetInfoResponse>>> GetInfo()
         {
             var data = Create(RPCMethod.getInfo);
+          
             JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> GetConnectionCount()
+        public async Task<JsonResponse<RootObject<object>>> GetConnectionCount()
         {
             var data = Create(RPCMethod.getConnectionCount);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
 
-        private Dictionary<string,object> Create(string method, string param = null)
+        private Dictionary<string,object> Create(string method, string[] param = null)
         {
-            var request = new RPCRequest() { Method = method.ToString(), Params = param };
+            var request = new RPCRequest() { Method = method.ToString().ToLower(), Params = param };
             return request.Create();
 
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getAccountAddress()
+        public async Task<JsonResponse<RootObject<object>>> getAccountAddress(string address)
         {
             var data = Create(RPCMethod.getAccountAddress);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            RPCRequest r = new RPCRequest() { Method = RPCMethod.getInfo.ToLower(), Id = "1" };
+            r.Params = new string[] { address };
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", r);
             return await request.Invoke();
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getAccount()
+        public async Task<JsonResponse<RootObject<object>>> getAccount(string account)
         {
             var data = Create(RPCMethod.getAccount);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getBalance()
+        public async Task<JsonResponse<RootObject<object>>> getBalance()
         {
             var data = Create(RPCMethod.getBalance);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getAddressesByAccount()
+        public async Task<JsonResponse<RootObject<object>>> getAddressesByAccount()
         {
             var data = Create(RPCMethod.getAddressesByAccount);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getblocknumber()
+        public async Task<JsonResponse<RootObject<object>>> getblockcount()
         {
-            var data = Create(RPCMethod.getBlock);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            var data = Create(RPCMethod.getBlockCount);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getdifficulty()
+        public async Task<JsonResponse<RootObject<object>>> getdifficulty()
         {
             var data = Create(RPCMethod.getDifficulty);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke(); 
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getgenerate()
+        public async Task<JsonResponse<RootObject<object>>> getgenerate()
         {
             var data = Create(RPCMethod.getGenerate);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke(); ;
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> gethashespersec()
+        public async Task<JsonResponse<RootObject<object>>> gethashespersec()
         {
             var data = Create(RPCMethod.getHashesPerSec);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke(); ;
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getmemorypool()
+        public async Task<JsonResponse<RootObject<object>>> getmemorypool()
         {
             var data = Create(RPCMethod.getMemoryPool);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke(); ;
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> getmininginfo()
+        public async Task<JsonResponse<RootObject<object>>> getmininginfo()
         {
             var data = Create(RPCMethod.getMiningInfo);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke(); ;
         }
 
-        public async Task<JsonResponse<RootObject<GetInfoResponse>>> walletlock()
+        public async Task<JsonResponse<RootObject<object>>> walletlock()
         {
             var data = Create(RPCMethod.walletLock);
-            JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke(); ;
         }
     }
