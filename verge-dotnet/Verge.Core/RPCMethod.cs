@@ -16,7 +16,7 @@ namespace Verge.Core
         public static string encryptWallet => "encryptWallet";
         public static string getAccount => "getAccount";
        
-        public static string getAccountAddress => "getAccountAddress";
+        public static string getAccountAddress => "getAccountAddress"; 
         public static string getAddressesByAccount => "getAddressesByAccount";
         public static string getBalance => "getBalance";
 
@@ -30,7 +30,7 @@ namespace Verge.Core
         public static string getHashesPerSec => "getHashesPerSec";
 
         public static string getInfo => "getInfo";
-        public static string getMemoryPool => "getMemoryPool";
+        public static string getMemoryPool => "getmemorypool";
         public static string getMiningInfo => "getMiningInfo";
 
         public static string getNewAddress => "getNewAddress";

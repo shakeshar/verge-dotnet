@@ -11,18 +11,19 @@ namespace Verge.Core.Client
         protected readonly string Url;
         public async Task<JsonResponse<T>> Invoke()
         {
-            try{
-            var response = await Execute();
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var content = await response.Content.ReadAsStringAsync();
-                T model = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(content);
-                return new JsonResponse<T>(response, model);
-            }
-            else
-            {
-                return new JsonResponse<T>(response, default(T));
-            }
+                var response = await Execute();
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    T model = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(content);
+                    return new JsonResponse<T>(response, model);
+                }
+                else
+                {
+                    return new JsonResponse<T>(response, default(T));
+                }
             }
             catch (Exception e)
             {
