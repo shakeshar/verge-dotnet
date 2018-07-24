@@ -12,21 +12,19 @@ namespace Verge.Core
         [DataMember(Name = "id")]
         public string Id { get; set; }
         [DataMember(Name = "params")]
-        public string[] Params { get; set; }
+        public IList<object> Params { get; set; }
         [DataMember(Name = "method")]
         public string Method { get; set; }
 
         public RPCRequest()
         {
-
+            Params = new List<object>();
+                
+                
         }
-        public Dictionary<string, object> Create()
+        public void AddParameter(object param)
         {
-            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>();
-            keyValuePairs.Add("id", Id);
-            keyValuePairs.Add("params", Params);
-            keyValuePairs.Add("method", Method);
-            return keyValuePairs;
-        } 
+            Params.Add(param);
+        }
     }
 }
