@@ -12,5 +12,6 @@ namespace Verge.Core.Client
             Response = response;
             Data = data;
         }
+       
     }
 }
