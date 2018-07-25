@@ -32,10 +32,10 @@ namespace Verge.Core.Client
             JsonRequest<RootObject<GetInfoResponse>> request = new PostRequest<RootObject<GetInfoResponse>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<JsonResponse<RootObject<object>>> GetConnectionCount()
+        public async Task<JsonResponse<RootObject<int>>> GetConnectionCount()
         {
             var data = Create(RPCMethod.getConnectionCount);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<int>> request = new PostRequest<RootObject<int>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
         public async Task<JsonResponse<RootObject<object>>> getAccountAddress(string address)
@@ -46,17 +46,17 @@ namespace Verge.Core.Client
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", r);
             return await request.Invoke();
         }
-        public async Task<JsonResponse<RootObject<object>>> getAccount(string address)
+        public async Task<JsonResponse<RootObject<string>>> getAccount(string address)
         {
             var data = Create(RPCMethod.getAccount);
             data.AddParameter(address);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<string>> request = new PostRequest<RootObject<string>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<JsonResponse<RootObject<object>>> getBalance()
+        public async Task<JsonResponse<RootObject<decimal>>> getBalance()
         {
             var data = Create(RPCMethod.getBalance);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<decimal>> request = new PostRequest<RootObject<decimal>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
         public async Task<JsonResponse<RootObject<object>>> getAddressesByAccount()
@@ -65,28 +65,28 @@ namespace Verge.Core.Client
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<JsonResponse<RootObject<object>>> getblockcount()
+        public async Task<JsonResponse<RootObject<long>>> getblockcount()
         {
             var data = Create(RPCMethod.getBlockCount);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<long>> request = new PostRequest<RootObject<long>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<JsonResponse<RootObject<object>>> getdifficulty()
+        public async Task<JsonResponse<RootObject<GetDiffucultResponse>>> getdifficulty()
         {
             var data = Create(RPCMethod.getDifficulty);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<GetDiffucultResponse>> request = new PostRequest<RootObject<GetDiffucultResponse>>(client, $"{url}:{port}", data);
             return await request.Invoke(); 
         }
-        public async Task<JsonResponse<RootObject<object>>> getgenerate()
+        public async Task<JsonResponse<RootObject<bool>>> getgenerate()
         {
             var data = Create(RPCMethod.getGenerate);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<bool>> request = new PostRequest<RootObject<bool>>(client, $"{url}:{port}", data);
             return await request.Invoke(); ;
         }
-        public async Task<JsonResponse<RootObject<object>>> gethashespersec()
+        public async Task<JsonResponse<RootObject<double>>> gethashespersec()
         {
             var data = Create(RPCMethod.getHashesPerSec);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<double>> request = new PostRequest<RootObject<double>>(client, $"{url}:{port}", data);
             return await request.Invoke(); ;
         }
         public async Task<JsonResponse<RootObject<object>>> getmemorypool()
@@ -107,11 +107,11 @@ namespace Verge.Core.Client
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke(); 
         }
-        public async Task<JsonResponse<RootObject<object>>> getTransaction(string txid)
+        public async Task<JsonResponse<RootObject<TransactionResponse>>> getTransaction(string txid)
         {
             var data = Create(RPCMethod.getTransaction);
-          
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            data.AddParameter(txid);
+            JsonRequest<RootObject<TransactionResponse>> request = new PostRequest<RootObject<TransactionResponse>>(client, $"{url}:{port}", data);
             return await request.Invoke(); 
         }
         public async Task<JsonResponse<RootObject<object>>> backupWallet(string filepath)
@@ -142,19 +142,19 @@ namespace Verge.Core.Client
             JsonRequest<RootObject<string>> request = new PostRequest<RootObject<string>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<JsonResponse<RootObject<object>>> getreceivedbyaccount(string account)
+        public async Task<JsonResponse<RootObject<decimal>>> getreceivedbyaccount(string account)
         {
             var data = Create(RPCMethod.getReceivedByAccount);
             data.AddParameter(account);
 
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<decimal>> request = new PostRequest<RootObject<decimal>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<JsonResponse<RootObject<object>>> getreceivedbyaddress(string address)
+        public async Task<JsonResponse<RootObject<decimal>>> getreceivedbyaddress(string address)
         {
             var data = Create(RPCMethod.getReceivedByAddress);
             data.AddParameter(address);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<decimal>> request = new PostRequest<RootObject<decimal>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
 
@@ -165,10 +165,10 @@ namespace Verge.Core.Client
             return request;
         }
 
-        public async Task<JsonResponse<RootObject<object>>> getWork()
+        public async Task<JsonResponse<RootObject<GetWorkResponse>>> getWork()
         {
             var data = Create(RPCMethod.getWork);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<GetWorkResponse>> request = new PostRequest<RootObject<GetWorkResponse>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
         public async Task<JsonResponse<RootObject<object>>> setAccount(string address, string account)
