@@ -34,7 +34,7 @@ var response = await client.GetInfo();
 
 ## Bounties
 
-[VERGE](http://www.vergecurrency.com) donation address is DJi1vCJcE1f1HJvnMPjDCN2UHEtU8GctKV
+[VERGE](http://www.vergecurrency.com) donation address is DQAFGhEwQ8W9aq4dqfetqGQ5coTviaFKdx
 
 Donations in [verge](http://www.vergecurrency.com) will be used for bounties, and holding. As a side note: I encourage all GitHub repository owners to post a donation address so their community can easily support development financially.
 
