@@ -19,13 +19,13 @@ namespace Verge.Core.Client
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     T model = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(content);
-                    return new JsonResponse<T>(response, model);
+                    return new JsonResponse<T>(response, model, content);
                 }
                 else
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     T model = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(content);
-                    return new JsonResponse<T>(response, model);
+                    return new JsonResponse<T>(response, model, string.Empty);
                 }
             }
             catch (Exception e)

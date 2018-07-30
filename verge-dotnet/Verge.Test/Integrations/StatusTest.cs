@@ -1,13 +1,8 @@
-using System;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Verge.Core.Client;
-using Verge.Core.Contract;
 
 using Xunit;
 
-namespace Verge.Test
+namespace Verge.Test.Integrations
 {
 
     public class StatusTest :BaseTest

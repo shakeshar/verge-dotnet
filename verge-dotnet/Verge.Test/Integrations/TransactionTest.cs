@@ -8,7 +8,7 @@ using Verge.Core.Contract;
 
 using Xunit;
 
-namespace Verge.Test
+namespace Verge.Test.Integrations
 {
     public class TransactionTest : BaseTest
     {

@@ -2,7 +2,7 @@
 using Verge.Core.Client;
 using Xunit;
 
-namespace Verge.Test
+namespace Verge.Test.Integrations
 {
 
     public class BaseTest

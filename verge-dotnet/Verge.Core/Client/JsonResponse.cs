@@ -8,10 +8,12 @@ namespace Verge.Core.Client
         public HttpResponseMessage Response { get; }
         public T Data { get; }
         public string Message => Response.ReasonPhrase;
-        public JsonResponse(HttpResponseMessage response, T data)
+        public string Content { get; }
+        public JsonResponse(HttpResponseMessage response, T data, string content)
         {
-            Response = response;
-            Data = data;
+            this.Response = response;
+            this.Data = data;
+            this.Content = content;
         }
     }
     public class JsonErrorResponse<T> : IJsonResponse<T>
@@ -19,10 +21,12 @@ namespace Verge.Core.Client
         public HttpResponseMessage Response { get; }
         public T Data { get; }
         public string Message { get; }
+        public string Content { get; }
+
         public JsonErrorResponse(HttpResponseMessage response, T data, string message)
         {
-            Response = response;
-            Data = data;
+            this.Response = response;
+            this.Data = data;
         }
     }
 }

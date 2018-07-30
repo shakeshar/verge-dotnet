@@ -6,10 +6,10 @@ namespace Verge.Core.Contract
     public class RootObject<T>
     {
         [DataMember(Name = "result")]
-        public T result { get; set; }
+        public T Result { get; set; }
         [DataMember(Name = "error")]
          public RPCErrorResponse Error { get; set; }
         [DataMember(Name = "id")]
-        public object id { get; set; }
+        public object Id { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace Verge.Core.Client
     {
         T Data { get; }
         string Message { get; }
+        string Content { get; }
         HttpResponseMessage Response { get; }
     }
 }

@@ -8,7 +8,7 @@ using Verge.Core.Contract;
 
 using Xunit;
 
-namespace Verge.Test
+namespace Verge.Test.Integrations
 {
     public class AccountTest : BaseTest
     {
@@ -41,15 +41,12 @@ namespace Verge.Test
             var response = await client.Dumpprivkey(account.Address);
             Assert.True(response.Response.IsSuccessStatusCode, response.Message);
         }
-        
-
         [Fact]
         public async Task assert_can_getreceivedbyaccount()
         {
             var response = await client.GetReceivedByaccount(account.Name);
             Assert.True(response.Response.IsSuccessStatusCode);
         }
-
         [Fact]
         public async Task assert_can_getreceivedbyaddress()
         {
@@ -69,23 +66,18 @@ namespace Verge.Test
             Assert.True(response.Response.IsSuccessStatusCode);
 
         }
-       
-
         [Fact]
         public async Task assert_can_setAccount()
         {
             var response = await client.SetAccount(account.Address, account.Name);
             Assert.True(response.Response.IsSuccessStatusCode);
         }
-       
         [Fact]
         public async Task assert_can_signmessage()
         {
             var response = await client.Signmessage(account.Address, message);
             Assert.True(response.Response.IsSuccessStatusCode);
         }
-
-        
         [Fact]
         public async Task assert_can_validateaddress()
         {
@@ -98,8 +90,6 @@ namespace Verge.Test
             var response = await client.Verifymessage(account.Address, signMessage, message);
             Assert.True(response.Response.IsSuccessStatusCode);
         }
-        
-        
         [Fact]
         public async Task assert_can_listTransactions()
         {
@@ -144,7 +134,6 @@ namespace Verge.Test
             var response = await client.GetNewAddress();
             Assert.True(response.Response.IsSuccessStatusCode);
         }
-       
         [Theory]
         [InlineData(1)]
         public async Task assert_can_getBlockHash(int index)
