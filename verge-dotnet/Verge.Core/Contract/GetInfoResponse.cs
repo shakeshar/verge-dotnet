@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using System.Text;
 
 namespace Verge.Core.Contract
@@ -31,21 +30,5 @@ namespace Verge.Core.Contract
         public int keypoolsize { get; set; }
         public double paytxfee { get; set; }
         public string errors { get; set; }
-    }
-    [DataContract]
-    public class RootObject<T>
-    {
-        public T result { get; set; }
-        [DataMember(Name = "error")]
-        public RPCError Error { get; set; }
-        public object id { get; set; }
-    }
-    [DataContract]
-    public class RPCError
-    {
-        [DataMember(Name = "message")]
-        public string Message { get; set; }
-        [DataMember(Name = "code")]
-        public int Code { get; set; }
     }
 }

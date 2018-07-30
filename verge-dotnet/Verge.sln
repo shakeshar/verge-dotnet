@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verge.Test", "Verge.Test\Verge.Test.csproj", "{B9DF73EF-2C67-4268-933C-121BC943776F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verge.Test", "Verge.Test\Verge.Test.csproj", "{B9DF73EF-2C67-4268-933C-121BC943776F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verge.Core", "Verge.Core\Verge.Core.csproj", "{4A7BA2CB-D08F-42D5-81F3-BC548F016819}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verge.Core", "Verge.Core\Verge.Core.csproj", "{4A7BA2CB-D08F-42D5-81F3-BC548F016819}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{3A7C424A-8864-4A90-9F57-66B4DE40C3E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verge.CMD", "Verge.CMD\Verge.CMD.csproj", "{8D5757CC-B00E-4FEE-A07F-E001A6D29413}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{4A7BA2CB-D08F-42D5-81F3-BC548F016819}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A7BA2CB-D08F-42D5-81F3-BC548F016819}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A7BA2CB-D08F-42D5-81F3-BC548F016819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D5757CC-B00E-4FEE-A07F-E001A6D29413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5757CC-B00E-4FEE-A07F-E001A6D29413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5757CC-B00E-4FEE-A07F-E001A6D29413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5757CC-B00E-4FEE-A07F-E001A6D29413}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D5757CC-B00E-4FEE-A07F-E001A6D29413} = {3A7C424A-8864-4A90-9F57-66B4DE40C3E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C1811400-E9D4-43B0-AB56-DF7236EF1001}

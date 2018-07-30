@@ -4,8 +4,7 @@ using System.Runtime.Serialization;
 using System.Text;
 
 namespace Verge.Core
-{
-    //TODO Fix proper requestcontract 
+{   
     [DataContract]
     public class RPCRequest
     {
@@ -19,8 +18,6 @@ namespace Verge.Core
         public RPCRequest()
         {
             Params = new List<object>();
-                
-                
         }
         public void AddParameter(object param)
         {

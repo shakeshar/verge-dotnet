@@ -1,0 +1,53 @@
+﻿{
+  "settings": [
+    {
+      "key": "username",
+      "value": "testuser"
+    },
+    {
+      "key": "password",
+      "value": "testpass"
+    },
+    {
+      "key": "url",
+      "value": "http://127.0.0.1"
+    },
+    {
+      "key": "port",
+      "value": 20102
+    },
+    {
+      "key": "account",
+      "value": "main"
+    },
+    {
+      "key": "address",
+      "value": "DQAFGhEwQ8W9aq4dqfetqGQ5coTviaFKdx"
+    },
+    {
+      "key": "transactionFromAccount",
+      "value": "main"
+    },
+    {
+      "key": "transactionToAddress",
+      "value": "DEQap1HFYiBzgCVmLgvsxmVLkGDnkMqHkH"
+    },
+    {
+      "key": "transactionAmount",
+      "value": "0.10"
+    },
+    {
+      "key": "transactionComment",
+      "value": "transactionComment"
+    },
+    {
+      "key": "transactionCommentTo",
+      "value": "transactionCommentTo"
+    },
+    {
+      "key": "transactionMinConf",
+      "value": 2
+    }
+
+  ]
+}
