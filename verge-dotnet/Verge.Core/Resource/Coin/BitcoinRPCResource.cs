@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Verge.Core.Client;
+using Verge.Core.Client.Commands;
 using Verge.Core.Contract;
 
 namespace Verge.Core.Resource.Coin
