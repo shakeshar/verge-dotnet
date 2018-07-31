@@ -22,7 +22,7 @@
     },
     {
       "key": "address",
-      "value": "DQAFGhEwQ8W9aq4dqfetqGQ5coTviaFKdx"
+      "value": "DMRQGQvToSbhGVbMh923e91FmYWoEkCq7W"
     },
     {
       "key": "transactionFromAccount",
@@ -47,6 +47,10 @@
     {
       "key": "transactionMinConf",
       "value": 2
+    },
+    {
+      "key": "blockChainExplorerUrl",
+      "value": "https://verge-blockchain.info/"
     }
 
   ]

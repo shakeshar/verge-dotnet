@@ -23,6 +23,5 @@ namespace Verge.Core.Resource.Coin
             this.url = url;
             this.port = port;
         }
-
     }
 }

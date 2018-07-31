@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Verge.Core;
 using Verge.Core.Client;
 using Xunit;
 
@@ -9,8 +10,10 @@ namespace Verge.Test.Integrations
     {
         protected string passphase => "supersecret";
         protected readonly IVergeClient client;
+        protected readonly IAppSettings Settings;
         public BaseTest()
         {
+            Settings = DILocator.Resolve<IAppSettings>();
             this.client = DILocator.Resolve<IVergeClient>();
         }
         [Fact]
