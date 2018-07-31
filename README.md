@@ -46,6 +46,12 @@ catch (Exception e)
 Console.ReadKey();
 ```
 
+```js
+HttpClient client = new HttpClient();
+IBlockExplorerResource resource = new BlockExplorerResource(client, "https://verge-blockchain.info/");
+var result = await resource.GetAddressBalance("DMRQGQvToSbhGVbMh923e91FmYWoEkCq7W");
+```
+
 ## Commands
 
 TODO: Write tests for these.
