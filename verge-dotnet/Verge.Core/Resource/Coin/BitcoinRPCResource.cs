@@ -32,11 +32,11 @@ namespace Verge.Core.Resource.Coin
         Task<IJsonResponse<RootObject<TransactionResponse>>> GetTransaction(string txid);
         Task<IJsonResponse<RootObject<GetWorkResponse>>> GetWork();
         Task<IJsonResponse<RootObject<object>>> ImportPrivKey(string key, string label);
-        Task<IJsonResponse<RootObject<object>>> ListAccounts();
+        Task<IJsonResponse<RootObject<Dictionary<string, decimal>>>> ListAccounts();
         Task<IJsonResponse<RootObject<object>>> ListReceivedByAccount(int minConf = 1, bool includeEmpty = false);
         Task<IJsonResponse<RootObject<object>>> ListReceivedByAddress(int minConf = 1, bool includeEmpty = false);
         Task<IJsonResponse<RootObject<object>>> ListSinceBlock(string blockhash);
-        Task<IJsonResponse<RootObject<object>>> ListTransactions(string account, int count = 10, int from = 0);
+        Task<IJsonResponse<RootObject<IEnumerable<AccountTransactionsResponse>>>> ListTransactions(string account, int count = 10, int from = 0);
         Task<IJsonResponse<RootObject<object>>> Move(string fromAccount, string toAccount, decimal amount, string comment, int minConf = 1);
         Task<IJsonResponse<RootObject<object>>> SendToAddress(string address, decimal amount, string comment, string commentTo);
         Task<IJsonResponse<RootObject<object>>> SetAccount(string address, string account);
@@ -220,10 +220,10 @@ namespace Verge.Core.Resource.Coin
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<IJsonResponse<RootObject<object>>> ListAccounts()
+        public async Task<IJsonResponse<RootObject<Dictionary<string, decimal>>>> ListAccounts()
         {
             var data = Create(RPCMethod.listAccounts);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<Dictionary<string,decimal>>> request = new PostRequest<RootObject<Dictionary<string, decimal>>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
         public async Task<IJsonResponse<RootObject<object>>> ListReceivedByAccount(int minConf = 1, bool includeEmpty = false)
@@ -249,13 +249,13 @@ namespace Verge.Core.Resource.Coin
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<IJsonResponse<RootObject<object>>> ListTransactions(string account, int count = 10, int from = 0)
+        public async Task<IJsonResponse<RootObject<IEnumerable<AccountTransactionsResponse>>>> ListTransactions(string account, int count = 10, int from = 0)
         {
             var data = Create(RPCMethod.listTransactions);
             data.AddParameter(account);
             data.AddParameter(count);
             data.AddParameter(from);
-            JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
+            JsonRequest<RootObject<IEnumerable<AccountTransactionsResponse>>> request = new PostRequest<RootObject<IEnumerable<AccountTransactionsResponse>>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
         public async Task<IJsonResponse<RootObject<object>>> Move(string fromAccount, string toAccount, decimal amount, string comment, int minConf = 1)
@@ -349,5 +349,7 @@ namespace Verge.Core.Resource.Coin
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
+
+       
     }
 }

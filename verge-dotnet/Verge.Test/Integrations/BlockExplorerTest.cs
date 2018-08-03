@@ -17,6 +17,8 @@ namespace Verge.Test.Integrations
             this.address = base.Settings.GetValue<string>("address");
             resource = new BlockExplorerResource(client, url);
         }
+
+        
         
         [Fact]
         public async Task assert_can_getBalanceFromBlockExplorer()
@@ -24,7 +26,15 @@ namespace Verge.Test.Integrations
             var response = await resource.GetAddressBalance(address);
             Assert.True(response.Response.IsSuccessStatusCode);
         }
-       
+        [Fact]
+        public async Task test()
+        {
+            HttpClient client = new HttpClient();
+            IBlockExplorerResource resource = new BlockExplorerResource(client, "https://verge-blockchain.info/");
+            var result = await resource.GetAddressBalance("DMRQGQvToSbhGVbMh923e91FmYWoEkCq7W");
+           
+        }
+
 
     }
 }
