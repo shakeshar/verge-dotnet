@@ -10,7 +10,7 @@ namespace Verge.CMD
         static void Main(string[] args)
         {
             Console.WriteLine("Hello HODL!");
-            IVergeClient client = new VergeClient("testuser", "testpass", "http://192.168.1.179", 20102);
+            IVergeClient client = new VergeClient("testuser", "testpass", "http://192.168.1.170", 20102);
             try
             {
                 var response = client.GetInfo().Result;
@@ -38,7 +38,7 @@ namespace Verge.CMD
 
 
 
-
+                Console.Read();
             }
             catch (Exception e)
             {
