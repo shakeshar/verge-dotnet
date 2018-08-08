@@ -34,7 +34,7 @@ namespace Verge.Test.Integrations
         [Fact]
         public async Task assert_can_unlockWallet()
         {
-            var response = await client.WalletPassphrase(passphase, 10);
+            var response = await client.WalletPassphrase(passphase, false, 500);
             Assert.True(response.Response.IsSuccessStatusCode);
         }
     }

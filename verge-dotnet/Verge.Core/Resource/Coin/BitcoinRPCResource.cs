@@ -18,6 +18,7 @@ namespace Verge.Core.Resource.Coin
         Task<IJsonResponse<RootObject<decimal>>> GetBalance();
         Task<IJsonResponse<RootObject<object>>> GetBlock(string account);
         Task<IJsonResponse<RootObject<long>>> GetBlockCount();
+        Task<IJsonResponse<RootObject<GetBlockchainInfoResponse>>> GetBlockchainInfo();
         Task<IJsonResponse<RootObject<object>>> GetBlockHash(int index);
         Task<IJsonResponse<RootObject<int>>> GetConnectionCount();
         Task<IJsonResponse<RootObject<GetDiffucultResponse>>> Getdifficulty();
@@ -46,7 +47,7 @@ namespace Verge.Core.Resource.Coin
         Task<IJsonResponse<RootObject<object>>> Validateaddress(string address);
         Task<IJsonResponse<RootObject<object>>> Verifymessage(string address, string signature, string message);
         Task<IJsonResponse<RootObject<object>>> Walletlock();
-        Task<IJsonResponse<RootObject<object>>> WalletPassphrase(string passphase, int timeoutSec = 1073741824);
+        Task<IJsonResponse<RootObject<object>>> WalletPassphrase(string passphase, bool mintonly=false, int timeoutSec = 1073741824);
         Task<IJsonResponse<RootObject<object>>> WalletPassphraseChange(string oldPassphrase, string newPassphrase);
 
     }
@@ -121,6 +122,16 @@ namespace Verge.Core.Resource.Coin
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
+
+        public async Task<IJsonResponse<RootObject<GetBlockchainInfoResponse>>> GetBlockchainInfo()
+        {
+            var data = Create(RPCMethod.getblockchaininfo);
+
+            JsonRequest<RootObject<GetBlockchainInfoResponse>> request = new PostRequest<RootObject<GetBlockchainInfoResponse>>(client, $"{url}:{port}", data);
+
+            return await request.Invoke();
+        }
+
         public async Task<IJsonResponse<RootObject<long>>> GetBlockCount()
         {
             var data = Create(RPCMethod.getBlockCount);
@@ -332,11 +343,12 @@ namespace Verge.Core.Resource.Coin
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
             return await request.Invoke();
         }
-        public async Task<IJsonResponse<RootObject<object>>> WalletPassphrase(string passphase, int timeoutSec = 10)
+        public async Task<IJsonResponse<RootObject<object>>> WalletPassphrase(string passphase, bool mintonly = false, int timeoutSec = 10)
         {
             var data = Create(RPCMethod.walletPassphrase);
-            data.AddParameter(passphase);
+            data.AddParameter(passphase);           
             data.AddParameter(timeoutSec);
+            data.AddParameter(mintonly);
             JsonRequest<RootObject<object>> request = new PostRequest<RootObject<object>>(client, $"{url}:{port}", data);
 
             return await request.Invoke();

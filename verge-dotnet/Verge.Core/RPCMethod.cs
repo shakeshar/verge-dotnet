@@ -24,7 +24,10 @@ namespace Verge.Core
         public static string getBlockCount => "getBlockCount";
         public static string getBlockHash => "getBlockHash";
         public static string getConnectionCount => "getConnectionCount";
-         
+        public static string getblockchaininfo => "getblockchaininfo";
+
+        
+
         public static string getDifficulty => "getDifficulty";
         public static string getGenerate => "getGenerate";
         public static string getHashesPerSec => "getHashesPerSec";
