@@ -14,7 +14,7 @@ namespace Verge.Test.Integrations
     {
         protected string signMessage => "IJ8YlVVGIKsC+y2a7aKRAL2TjLVs9m8UD4zwlBfxhsXyfJGwZnpj5TWj+wiYSo3Dt5MRt0PVwm6KeS0ndM73AVk=";
         protected string message => "test message";
-        protected string txId => "bddd6b9a5a47e2db90d4641fba9fcf871f9f78efede03eaf1dd4750c480ebef2";
+        protected string txId => "9987fb3463d9b1adb77f70d4dde639f6006eef2cac3170da087bbc3d1d1c40f2";
        
         protected string walletBackupPath => @"C:\temp\wallet.bak";
 
