@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Verge.Core.Client;
+using Verge.Core.Resource.BlockExplorer;
 
 namespace Verge.CMD
 {
@@ -10,11 +12,18 @@ namespace Verge.CMD
         static void Main(string[] args)
         {
             Console.WriteLine("Hello HODL!");
-            IVergeClient client = new VergeClient("testuser", "testpass", "http://192.168.1.170", 20102);
+            IVergeClient client = new VergeClient("testuser", "testpass", "http://localhost", 20102);
             try
             {
                 var response = client.GetInfo().Result;
                 Console.WriteLine(response.Content);
+
+
+                HttpClient client2 = new HttpClient();
+                IBlockExplorerResource resource = new BlockExplorerResource(client2, "https://verge-blockchain.info/");
+                var blcok  = resource.GetBlockCount().Result;
+
+
 
                 var balance = client.GetBalance().Result;
                 Console.WriteLine(balance.Content);

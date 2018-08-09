@@ -22,10 +22,19 @@ namespace Verge.Core.Resource.BlockExplorer
             JsonRequest<BlockchainExplorerAddressBalanceResponse> request = new GetRequest<BlockchainExplorerAddressBalanceResponse>(Client, url);
             return await request.Invoke();
         }
+        public async Task<IJsonResponse<string>> GetBlockCount()
+        {
+            string url = $"{BaseUrl}api/getblockcount";
+            JsonRequest<string> request = new GetRequest<string>(Client, url);
+            return await request.Invoke();
+        }
+
+       
     }
 
     public interface IBlockExplorerResource
     {
         Task<IJsonResponse<BlockchainExplorerAddressBalanceResponse>> GetAddressBalance(string address);
+        Task<IJsonResponse<string>> GetBlockCount();
     }
 }
