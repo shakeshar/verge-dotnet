@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Verge.CMD": {
+      "commandName": "Project",
+      "commandLineArgs": "http://fe80::cd9c:a902:bfa2:54c0%19 20102"
+    }
+  }
+}
